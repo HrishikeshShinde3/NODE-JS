@@ -1,27 +1,14 @@
-// Rendering HTML and Routing in Node JS
+// Making HTML Pages
 
 const express=require('express');
+const path=require('path')
+
 const app=express();
+const pagesPath=path.join(__dirname,'pages')
 
-app.get("",(req,res)=>{
-    
-    res.send(
-        `
-        <h1>home page<h1>
-        <a href="/about">go to about page</a>
-        `)
-       
-});
 
-app.get("/about",(req,res)=>{
-    
-    res.send(
-        `
-        <h1>about page<h1>
-        <a href="/">go to home page</a>
-        `)
-       
-});
+
+app.use(express.static(pagesPath));// use ==> express js func and middleware function
 
 
 app.listen(5000)
